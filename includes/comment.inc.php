@@ -2,13 +2,18 @@
 
 
 if(isset($_POST['postComment'])){
-    $commentDetail = trim($_POST['commentDteail']);
-    $postId = $_POST['postId'];
-    $userId = $_POST['userId'];
-
-   // $imagePath = "uploads/";
-    $createDate = date('Y-m-d H:i:s');
-
+    session_start();
+    if(isset($_SESSION["userId"])){
+       
+        $commentDetail = trim($_POST['commentDteail']);
+        $postId = $_POST['postId'];
+        $userId = $_POST['userId'];
+        $createDate = date('Y-m-d H:i:s');
+       
+    }
+    else{
+        header('location: ../login.php');
+    }
    
 }
 

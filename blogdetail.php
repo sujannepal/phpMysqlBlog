@@ -114,11 +114,26 @@ if(isset($_GET['id'])){
                 <input type="hidden" value="<?php echo $postId ?>" name="postId">
                 <input type="hidden" value="<?php echo $userId ?>" name="userId">
 
-                <textarea class="form-control" name="commentDteail">
+                
+                <?php
+                    if(isset($_SESSION["userId"])){
 
-                </textarea>
+                        echo '
+                        
+                        <textarea class="form-control" name="commentDteail">
 
-                <input type="submit" name="postComment" value="Post a comment" class="btn btn-primary">
+                        </textarea>
+
+                        <input type="submit" name="postComment" value="Post a comment" class="btn btn-primary">
+                        ';
+                    }
+                    else{
+                        echo '<h5> Users need to login to comment </h5>';
+                        echo '<a href="login.php"> Click here to login </a>';
+                    }
+
+                ?>
+                
 
             </form>
 
