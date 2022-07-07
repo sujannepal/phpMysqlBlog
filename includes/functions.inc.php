@@ -181,3 +181,21 @@ function postComment($conn, $commentDetail, $postId, $userId, $createDate){
     header("location: ../index.php");
     exit();
 }
+
+//User feedback from contact page
+function submitUserFeedback($conn, $fbByName, $fbByEmail, $fbMessage, $created_date){
+    $sql = "INSERT INTO user_feedback (fb_by_name, fb_by_email, fb_msg, created_date) VALUES (?,?,?,?) ";
+    $stmt = mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        header("location: ../contact.php?error=contactfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt,"ssss", $fbByName, $fbByEmail, $fbMessage, $created_date);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    header("location: ../contact.php?error=none");
+    exit();
+
+}

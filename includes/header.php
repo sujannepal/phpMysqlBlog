@@ -35,11 +35,9 @@ session_start();
                                 <a class="nav-link active" aria-current="page" href="index.php"><i
                                         class="bi bi-house-fill me-2"></i>Home</a>
                             </li>
+                            
                             <li class="nav-item rounded">
-                                <a class="nav-link" href="#"><i class="bi bi-people-fill me-2"></i>Blog</a>
-                            </li>
-                            <li class="nav-item rounded">
-                                <a class="nav-link" href="#"><i class="bi bi-telephone-fill me-2"></i>Contact</a>
+                                <a class="nav-link" href="contact.php"><i class="bi bi-telephone-fill me-2"></i>Contact</a>
                             </li>
 
                             <li class="nav-item rounded">
