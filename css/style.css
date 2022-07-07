@@ -1,0 +1,20 @@
+html, body {
+    height: 100%;
+  }
+  
+  body {
+    background: #ffffff;
+    display: flex;
+    flex-flow: column;
+    padding-bottom: 50px !important;
+  }
+  
+  footer {
+    margin-top: auto;
+    background-color: #222;
+  }
+
+  .wrapper{
+    margin-top:60px !important;
+    margin-bottom:40px !important;
+  }
