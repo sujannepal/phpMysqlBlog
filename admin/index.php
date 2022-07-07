@@ -2,12 +2,19 @@
 
     require_once "../config/db_config.php";
 
+    session_start();
+    if(isset($_SESSION["userRole"])){
+        $userRole = $_SESSION["userRole"];
+
+        if($userRole !== "admin"){
+            header("location: ../index.php");;
+        }
+    }
+
     $sql = "SELECT * FROM post";
     $result = mysqli_query($conn, $sql);
 
-
 ?>
-
 
 
 <!DOCTYPE html>
