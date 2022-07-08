@@ -65,15 +65,25 @@ if(isset($_GET['id'])){
             </div>
         </div>
 
-        <div class="row">
+        <!-- <div class="row">
             <label>Comments</label>
             <hr>
-            
 
 
+
+        </div> -->
+        <div class="row">
+            <hr>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active bg-primary text-white" aria-current="page" href="#">Comments</a>
+
+                </li>
+            </ul>
         </div>
+        
         <div>
-        <?php
+            <?php
            // require_once "config/db_config.php";
                     
             // Attempt select query execution
@@ -89,17 +99,38 @@ if(isset($_GET['id'])){
 
                         while($row = mysqli_fetch_array($result)){
                             $commentDetail = $row['comment_detail'];
-                           // echo $commentDetail;
-                           
-                           echo "
-                           <div>
-                            <h6>".
-                             $commentDetail.
-                             "
-                            </h6>
-                            <hr>
+                            $commentDate = $row['created_date'];
+
+                            // echo $commentDetail;
+                            $commentByUserId = $row['user_id'];
+
+                            //Get commenting user name and other details
+                            $sqlUserDtl = "SELECT user_fname, user_lname FROM user WHERE user_id = $commentByUserId";
+                            $resultUserDtl = mysqli_query($conn, $sqlUserDtl);
+                            if(mysqli_num_rows($resultUserDtl)){
+                                $rowUserDtl = mysqli_fetch_assoc($resultUserDtl);
+                                $commentByUserName = $rowUserDtl['user_fname']." " .$rowUserDtl['user_lname'];
+                            }
+
+                            echo '
+                            <div class="row mt-3">
+                                <div class="col-sm-1">
+                                    <img src="images/dummy-pp.PNG" height="50" width="50" />
+                                </div>
+                                <div class="col-sm-11">
+                                    <div> '.$commentByUserName .'</div>
+                                    <div><span style="font-size: 12px;">(Posted on '.$commentDate.')</span></div>
+                                </div>
+                               
                             </div>
-                            ";
+                            <div class="row">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-11">
+                                        <h6>'.$commentDetail.'</h6>
+                                </div>
+                            </div>
+                            ';
+                           
                         }
                     }
                 }
@@ -108,32 +139,31 @@ if(isset($_GET['id'])){
         ?>
         </div>
 
-        
+
         <div class="row">
             <form method="POST" action="includes/comment.inc.php">
                 <input type="hidden" value="<?php echo $postId ?>" name="postId">
                 <input type="hidden" value="<?php echo $userId ?>" name="userId">
 
-                
+
                 <?php
                     if(isset($_SESSION["userId"])){
 
                         echo '
                         
-                        <textarea class="form-control" name="commentDteail">
-
-                        </textarea>
+                        <textarea class="form-control" name="commentDteail" placeholder="Place your comment here..."></textarea>                   
+                        
 
                         <input type="submit" name="postComment" value="Post a comment" class="btn btn-primary">
                         ';
                     }
                     else{
-                        echo '<h5> Users need to login to comment </h5>';
+                        echo '<span><i>(Users need to login to post a comment.) </i></span> <br>';
                         echo '<a href="login.php"> Click here to login </a>';
                     }
 
                 ?>
-                
+
 
             </form>
 
