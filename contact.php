@@ -4,11 +4,11 @@ include 'includes/header.php';
 
 <div class="wrapper">
     <div class="container">
-        <div class="row">
-            <h3>Feedback Form</h3>
+        <div class="row text-center">
+            <h5>Feedback Form</h5>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col-sm-4 offset-sm-4">
                 <form method="POST" action="includes/contact.inc.php">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Email address</label>
@@ -25,7 +25,7 @@ include 'includes/header.php';
                         <label for="exampleFormControlTextarea1">Your Message</label>
                         <textarea class="form-control" name="fb_msg" rows="3" required></textarea>
                     </div>
-                    <input type="submit" name="contactSubmit" value="Submit" class="btn btn-primary">
+                    <input type="submit" name="contactSubmit" value="Submit" class="btn btn-primary mt-3">
 
                 </form>
             </div>

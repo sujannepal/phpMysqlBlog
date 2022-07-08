@@ -1,4 +1,6 @@
 <?php
+    include 'admin-includes/header-ad.php';
+
     if(isset($_GET['id'])){
         $id = $_GET['id'];
         //echo $id;
@@ -24,20 +26,20 @@
             }
         }
     }
+
+    if(isset($_SESSION["userRole"])){
+        $userRole = $_SESSION["userRole"];
+        
+        if($userRole !== "admin"){
+            header("location: ../login.php");
+        }
+    }
+    else{
+        header("location: ../login.php");
+    }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Blog Post</title>
-    <link rel="stylesheet" href="../css//bootstrap.min.css">
-</head>
-
-<body>
+<div class="wrapper">
     <div class="container">
         <div class="row">
             <div class="col mt-3"></div>
@@ -59,24 +61,25 @@
                 </div>
                 <div class="form-group">
                     <label for="postDesc">Post Description</label>
-                    <textarea class="form-control" id="postDesc" name="postDesc" rows="3" >
-                        <?php echo $postDesc; ?>
-                    </textarea>
+                    <textarea class="form-control" id="postDesc" name="postDesc" rows="3" ><?php echo $postDesc; ?></textarea>
+                    
                 </div>
 
-                <div class="form-group">
+                <div class="form-group mt-3">
                     
-                    <label for = "postImage">Image <?php echo $imagePath; ?> </label>
-                    <input type="file" class="form-control-file" id="postImage" name="postImage"/>
+                    <label for = "postImage">Image  </label>
+                    <input type="file" class="form-control" id="postImage" name="postImage"/>
                     <input type="hidden" name="imagePath" value="<?php echo $imagePath ?>">
                     <!-- <img src="<?php echo $imageFullPath ?>"  name = "postImage" height="150" width="150"/> -->
                 </div>
 
-                <button type="submit" name="updatePost" class="btn btn-primary">Submit</button>
+                <button type="submit" name="updatePost" class="btn btn-primary mt-3">Submit</button>
             </form>
         </div>
     </div>
 
-</body>
+</div>
 
-</html>
+<?php
+    include 'admin-includes/footer-ad.php';
+?>

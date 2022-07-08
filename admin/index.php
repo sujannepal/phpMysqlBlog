@@ -1,14 +1,17 @@
 <?php
 
     require_once "../config/db_config.php";
+    include 'admin-includes/header-ad.php';
 
-    session_start();
     if(isset($_SESSION["userRole"])){
         $userRole = $_SESSION["userRole"];
-
+       
         if($userRole !== "admin"){
-            header("location: ../index.php");;
+            header("location: ../login.php");
         }
+    }
+    else{
+        header("location: ../login.php");
     }
 
     $sql = "SELECT * FROM post";
@@ -16,18 +19,7 @@
 
 ?>
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <link rel="stylesheet" href="../css/bootstrap.min.css" />
-</head>
-<body>
+<div class="wrapper">
     <div class="container">
         <div class="row">
             <div class="col mt-3"></div>
@@ -57,9 +49,11 @@
                         echo "</tr>";
                     echo "</thead>";
                     echo "<tbody>";
+                    $counter = 1;
                     while($row = mysqli_fetch_array($result)){
+                        
                         echo "<tr>";
-                            echo "<td>" . $row['post_id'] . "</td>";
+                            echo "<td>" . $counter . "</td>";
                             echo "<td>" . $row['post_title'] . "</td>";
                             echo "<td>" . $row['post_desc'] . "</td>";
                             echo "<td> <img height=150 width=150 src=\"" .'../'. $row['image_path'] . "\"</img> </td>";
@@ -67,10 +61,11 @@
                             echo "<td>" . $row['created_date'] . "</td>";
                             echo "<td>";
                                // echo '<a href="read.php?id='. $row['post_id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><button class="btn btn-primary">View</button></a>';
-                                echo '<a href="updatePost.php?id='. $row['post_id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><button class="btn btn-warning">Update</button></a>';
-                                echo '<a href="../includes/delete.inc.php?id='. $row['post_id'] .'" title="Delete Record" data-toggle="tooltip" onclick="return confirm(\'Are you sure to delete ?\');"><button class="btn btn-danger">Delete</button></a>';
+                                echo '<a href="updatePost.php?id='. $row['post_id'] .'" title="Update Record" data-toggle="tooltip"><button class="btn btn-warning">Update</button></a>';
+                                echo '<a href="../includes/delete.inc.php?id='. $row['post_id'] .'"  title="Delete Record" data-toggle="tooltip" onclick="return confirm(\'Are you sure to delete ?\');"><button class="btn btn-danger mt-3">Delete</button></a>';
                             echo "</td>";
                         echo "</tr>";
+                        $counter = $counter + 1;
                     }
                     echo "</tbody>";                            
                 echo "</table>";
@@ -84,5 +79,8 @@
         }
         ?>
     </div>
-</body>
-</html>
+
+</div>
+<?php
+    include 'admin-includes/footer-ad.php';
+?>
