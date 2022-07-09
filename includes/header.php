@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FogComputing</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css?time=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/header.css?time=<?php echo time(); ?>">
@@ -37,9 +37,9 @@
                                 <a class="nav-link active" aria-current="page" href="index.php"><i
                                         class="bi bi-house-fill me-2"></i>Home</a>
                             </li>
-                            <li class="nav-item rounded">
+                            <!-- <li class="nav-item rounded">
                                 <a class="nav-link" href="#"><i class="bi bi-people-fill me-2"></i>Blog</a>
-                            </li>
+                            </li> -->
                             <li class="nav-item rounded">
                                 <a class="nav-link" href="contact.php"><i class="bi bi-telephone-fill me-2"></i>Contact</a>
                             </li>
@@ -58,7 +58,18 @@
 
                             <?php
 
-                            
+                            if(isset($_SESSION["userRole"])){
+                                if($_SESSION["userRole"] == "admin"){
+                                    echo '
+                                
+                                    <li class="nav-item rounded">
+                                        <a class="nav-link" href="admin/index.php "><i class="bi bi-telephone-fill me-2"></i>Dashboard</a>
+                                    </li>
+                                    
+                                    ';
+                                }
+                                
+                            }
 
                             if(isset($_SESSION["username"])){
                                 echo '
@@ -82,18 +93,7 @@
                                 ';
                             }
                             
-                            if(isset($_SESSION["userrole"])){
-                                if($_SESSION["userrole"] == "admin"){
-                                    echo '
-                                
-                                    <li class="nav-item rounded">
-                                        <a class="nav-link" href="admin/index.php "><i class="bi bi-telephone-fill me-2"></i>Dashboard</a>
-                                    </li>
-                                    
-                                    ';
-                                }
-                                
-                            }
+                            
 
                             ?>
 

@@ -7,8 +7,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 p-4">
-                    <h5 class="mb-4 footer-header">TechBlog</h5>
-                    <p>TechBlog is tech blogging site where you can get all the latest blogs on technology.</p>
+                    <h5 class="mb-4 footer-header">FogComputing</h5>
+                    <p>Fog Computing is tech blogging site where you can get all the latest blogs on technology.</p>
                     <p>Copyright &copy;2022</p>
                 </div>
                 <div class="col-md-4 p-4">
@@ -18,7 +18,7 @@
                             <a href="index.php" class="nav-link mb-0" style="text-decoration: underline;">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="register.php" class="nav-link mb-0" style="text-decoration: underline;">Contact</a>
+                            <a href="contact.php" class="nav-link mb-0" style="text-decoration: underline;">Contact</a>
                         </li>
                     </ul>
                 </div>

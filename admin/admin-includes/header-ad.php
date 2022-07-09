@@ -9,9 +9,11 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <title>FogComputing</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css?time=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/style.css?time=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/header.css?time=<?php echo time(); ?>">
+
 
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"  crossorigin="anonymous"></script> -->
@@ -21,8 +23,8 @@ session_start();
 <body>
     <div class="container">
         <div class="mt-10">
-            <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #e3e3e3;">
-                <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg shadow-sm px-0 fixed-top" style="background-color: #e7e7e7;">
+                <div class="container">
                     <a class="navbar-brand" href="#"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
