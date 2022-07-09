@@ -26,7 +26,13 @@
                                         <img src="<?php echo $row['image_path'] ?>" height="180" width="180" />
                                     </div>
                                     <div class="col-sm-9 d-flex flex-column justify-content-center">
-                                        <p class="card-text"><?php echo $row['post_desc'] ?></p>
+                                        <p class="card-text">
+                                            <?php 
+                                            $desc_without_tags = strip_tags($row['post_desc']); 
+                                            $desc_limited = substr($desc_without_tags, 0, 250); 
+                                            echo $desc_limited . "..."; 
+                                            ?>
+                                        </p>
                                         <div class="w-100" align="right">
                                             <a href="blogdetail.php?id=<?php echo $row['post_id']; ?>" class="btn btn-read-more">Read more ... </a>
                                         </div>
