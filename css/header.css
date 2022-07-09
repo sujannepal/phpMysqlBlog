@@ -1,0 +1,16 @@
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .navbar-brand {
+    font-weight: bold;
+    color: #ff6801 !important;
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .nav-link {
+    color: black;
+    font-weight: 500;
+  }
+  

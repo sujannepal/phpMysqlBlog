@@ -1,40 +1,27 @@
 <?php
-
-
-
-include 'includes/header.php';
-
+    include 'includes/header.php';
 ?>
 
-
-<div class="wrapper">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-4 offset-sm-4">
-                <div>
-                    <h5>Please enter your login details</h5>
+        <h1 class="heading-one mt-5 mb-4" align="center">Login</h1>
+        <div class="w-80 mx-auto mb-5">
+            <form action="includes/login.inc.php" method="POST">
+                <div class="form-group mb-4">
+                    <label class="label">Email*</label>
+                    <input type="email" name="user_email" class="form-control input-field required" required />
                 </div>
-                <form action="includes/login.inc.php" class="form-control" method="POST">
-                    <div>
-                        <label>Email</label>
-                        <input type="email" name="user_email" class="form-control">
-                    </div>
 
-                    <div>
-                        <label>Password</label>
-                        <input type="password" name="user_pwd" class="form-control">
-                    </div>
+                <div class="form-group mb-4">
+                    <label class="label">Password*</label>
+                    <input type="password" name="user_pwd" class="form-control input-field required" required />
+                </div>
 
-                    <div class="mt-3">
-                        <input type="submit" name="login" value="Login" class="btn btn-primary">
-                    </div>
-
-                </form>
-            </div>
-
+                <div class="mt-3">
+                    <input type="submit" name="login" value="Login" class="btn custom-btn" />
+                </div>
+            </form>
         </div>
     </div>
-</div>
 
 
 <?php
