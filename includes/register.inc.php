@@ -21,12 +21,20 @@ if(isset($_POST["submit"])){
     }
 
     if(pwdMismatch($pwd, $c_pwd) !== false){
-        header("location: ../register.php?error=pwdmismatch");
+        echo '<script>
+            alert("Password doesn\'t match with confirm password");
+            window.location = "../register.php";
+        </script>';
+        // header("location: ../register.php?error=pwdmismatch");
         exit();
     }
 
     if(emailAlreadyTaken($conn, $user_email) !== false){
-        header("location: ../register.php?error=emailtaken");
+        echo '<script>
+            alert("Email already exists");
+            window.location = "../register.php";
+        </script>';
+        // header("location: ../register.php?error=emailtaken");
         exit();
     }
 
