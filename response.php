@@ -8,7 +8,7 @@
     if($error == "true"){
         echo '
             <div class="response-box">
-                <i class="fa fa-check-circle text-danger mb-4" aria-hidden="true" style="font-size: 6rem;"></i>
+                <i class="fa fa-times-circle-o text-danger mb-4" aria-hidden="true" style="font-size: 6rem;"></i>
                 <p class="text-danger" style="font-size: 2rem;">'.$message.'</p>
             </div>        
         ';

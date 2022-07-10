@@ -78,7 +78,7 @@ function createUser($conn, $first_name, $last_name, $user_email, $pwd){
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
-    header("location: ../response.php?error=false&&message=Account created successfully&&redirect=login.php");
+    header("location: response.php?error=false&&message=Account created successfully&&redirect=login.php");
 
     //header("location: ../login.php?error=none");
     exit();
