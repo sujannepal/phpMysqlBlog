@@ -9,7 +9,7 @@
                 <div class="col-md-4 p-4">
                     <h5 class="mb-4 footer-header">FogComputing</h5>
                     <p>Fog Computing is tech blogging site where you can get all the latest blogs on technology.</p>
-                    <p>Copyright &copy;2022</p>
+                    <p>Fog Computing &copy; <?php echo date("Y"); ?></p>
                 </div>
                 <div class="col-md-4 p-4">
                     <h5 class="mb-4 footer-header">Quick Links</h5>
@@ -23,7 +23,7 @@
                     </ul>
                 </div>
                 <div class="col-md-4 p-4">
-                    <h5 class="mb-4 footer-header">Latesh Blogs</h5>
+                    <h5 class="mb-4 footer-header">Latest Blogs</h5>
                     <div class="px-2">
                         <?php 
                             $query = "SELECT * FROM post ORDER BY post_id DESC LIMIT 3";
