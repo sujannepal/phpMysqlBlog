@@ -35,7 +35,7 @@
 
 <div class="wrapper">
     <div class="container">
-        
+
         <h1 align="center" class="font-weight-bold mb-5"><?php echo $postTitle ?></h1>
         <div align="center" class="mb-4">
             <img src="<?php echo $imagePath; ?>">
@@ -51,7 +51,7 @@
         <h5>Comments</h5>
         <hr />
         <div>
-        <?php
+            <?php
            // require_once "config/db_config.php";
                     
             // Attempt select query execution
@@ -112,8 +112,23 @@
         </div>
         <form method="POST" action="includes/comment.inc.php">
             <input type="hidden" name="postId" value=<?php echo $postId; ?> />
-            <textarea name="commentDetail" class="form-control input-field mb-3" placeholder="Write comment ...." required="required"></textarea>
-            <input type="submit" name="postComment" class="btn custom-btn py-2" value="Add Comment" />
+            <?php
+                if(isset($_SESSION["userId"])){
+                    echo '
+                    <textarea name="commentDetail" class="form-control input-field mb-3" placeholder="Write comment ...." required="required"></textarea>
+                    <input type="submit" name="postComment" class="btn custom-btn py-2" value="Add Comment" />
+                    ';
+
+                }
+                else{
+                        echo ' <textarea name="commentDetail" class="form-control input-field mb-3" placeholder="Write comment ...." required="required"></textarea>';
+
+                        echo '<span><i>(Users need to login to post a comment.) </i></span> <br>';
+                        echo '<a href="login.php"> Click here to login </a>';
+                }
+            ?>
+
+
         </form>
     </div>
 </div>

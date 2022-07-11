@@ -10,7 +10,17 @@
             $userId = $_SESSION['userId'];
 
             $createDate = date('Y-m-d H:i:s');
-            postComment($conn, $commentDetail, $postId, $userId, $createDate);
+
+            if(!empty($commentDetail)){
+                postComment($conn, $commentDetail, $postId, $userId, $createDate);
+            }
+            else{
+                echo '<script>
+                alert("Please write something on comment !");
+                window.location = "../login.php";
+            </script>';
+            exit();
+            }
         }
         else{
             echo '<script>
