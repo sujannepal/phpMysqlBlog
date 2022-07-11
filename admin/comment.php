@@ -37,8 +37,8 @@
                         echo "<tr>";
                             echo "<th>#</th>";
                             echo "<th>Comment</th>";
-                            echo "<th>Post Id</th>";
-                            echo "<th>User Id</th>";
+                            echo "<th>Post Title</th>";
+                            echo "<th>Comment By</th>";
                             echo "<th>Comment Date</th>";
                             //echo "<th>Action</th>";
                         echo "</tr>";
@@ -47,11 +47,38 @@
                     $counter = 1;
                     while($row = mysqli_fetch_array($result)){
                         
+                        //Get more details about coment
+                        $userId = $row['user_id'];
+                        $postId = $row['post_id'];
+
+                        //User name from user table
+                        $query = "SELECT user_fname, user_lname FROM user WHERE user_id = ?";
+                        $stmt1 = mysqli_prepare($conn, $query);
+                        mysqli_stmt_bind_param($stmt1, 'i', $userId);
+                        mysqli_stmt_execute($stmt1);
+                        $result1 = mysqli_stmt_get_result($stmt1);
+                        $row1 = mysqli_fetch_array($result1);
+
+                        $fname = $row1['user_fname'];
+                        $lname = $row1['user_lname'];
+
+                        //Post title from post table
+                        $query = "SELECT post_title, created_date FROM post WHERE post_id = ?";
+                        $stmt1 = mysqli_prepare($conn, $query);
+                        mysqli_stmt_bind_param($stmt1, 'i', $postId);
+                        mysqli_stmt_execute($stmt1);
+                        $result1 = mysqli_stmt_get_result($stmt1);
+                        $row1 = mysqli_fetch_array($result1);
+
+                        $postTitle = $row1['post_title'];
+                        $postDate = $row1['created_date'];
+
+
                         echo "<tr>";
                             echo "<td>" . $counter . "</td>";
                             echo "<td>" . $row['comment_detail'] . "</td>";
-                            echo "<td>" . $row['post_id'] . "</td>";
-                            echo "<td>" . $row['user_id'] . "</td>";
+                            echo "<td>" . $postTitle. "<br><i style='font-size:10px';>Published Date:<br>".$postDate . "</i>". "</td>";
+                            echo "<td>" . $fname. " " . $lname. "</td>";
                             echo "<td>" . $row['created_date'] . "</td>";
                             echo "<td>";
                               //  echo '<a href="../includes/delete.inc.php?id='. $row['fb_id'] .'"  title="Delete Record" data-toggle="tooltip" onclick="return confirm(\'Are you sure to delete ?\');"><button class="btn btn-danger mt-3">Delete</button></a>';
