@@ -38,8 +38,8 @@
                             echo "<th>#</th>";
                             echo "<th>Full Name</th>";
                             echo "<th>Email</th>";
-                            echo "<th>Message</th>";
-                            echo "<th>Feedback Date</th>";
+                            echo "<th>Role</th>";
+                            echo "<th>Joined Date</th>";
                             //echo "<th>Action</th>";
                         echo "</tr>";
                     echo "</thead>";

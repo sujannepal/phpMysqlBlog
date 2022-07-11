@@ -26,7 +26,7 @@
         </div>
         <div class="row">
             <div class="col-sm-4">
-                <h3>User Feedback </h3>
+                <h3>User Feedbacks </h3>
             </div>
         </div>
         <?php

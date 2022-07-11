@@ -55,7 +55,7 @@
             }
         }
         else{
-            header("location: response.php?error=true&&message=Error! Please try again.&&redirect=register.php");
+          //  header("location: response.php?error=true&&message=Error! Please try again.&&redirect=register.php");
 
         }
     }
