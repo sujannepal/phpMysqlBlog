@@ -23,7 +23,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <h3>Create a new post Post</h3>
+                <h3>Create a new blog post</h3>
             </div>
         </div>
 
