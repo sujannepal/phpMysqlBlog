@@ -94,7 +94,7 @@
                                 </div>
                                 <div class='d-flex mb-4 w-100 p-3' style='border: 1px solid #ccc;border-radius: 4px;'>
                                     <div style='width: 50px;' class='d-flex align-items-center justify-content-center'>
-                                        <i class='fa fa-user-circle-o' style='font-size: 25px;box-shadow: 0 0 4px #f1f1f1;'></i>
+                                        <i class='fas fa-user-circle' style='font-size: 25px;box-shadow: 0 0 4px #f1f1f1;'></i>
                                     </div>
                                     <div>
                                         <h6 class='p-0 m-0'><small>".$fname." ".$lname."</small></h6>

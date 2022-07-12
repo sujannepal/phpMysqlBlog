@@ -32,17 +32,17 @@
                 <div class="form-group">
                     <label for="postTitle">Post title</label>
                     <input type="text" class="form-control" id="postTitle" name="postTitle"
-                        placeholder="post title less than 255 characters">
+                        placeholder="post title less than 255 characters" required>
 
                 </div>
                 <div class="form-group">
                     <label for="postDesc">Post Description</label>
-                    <textarea class="form-control" id="postDesc" name="postDesc" rows="3"></textarea>
+                    <textarea class="form-control" id="postDesc" name="postDesc" rows="3" required></textarea>
                 </div>
 
                 <div class="form-group mt-3">
                     <label for = "postImage">Image </label>
-                    <input type="file" class="form-control" id="postImage" name="postImage"/>
+                    <input type="file" class="form-control" id="postImage" name="postImage" required/>
                 </div>
 
                 <button type="submit" name="createPost" class="btn btn-primary mt-3">Submit</button>

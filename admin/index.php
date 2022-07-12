@@ -26,7 +26,7 @@
         </div>
         <div class="row">
             <div class="col-sm-4">
-                <h3>Blog Posts</h3>
+                <h4>Blog Posts</h4>
             </div>
             <div class="col-sm-6"></div>
             <div class="col-sm-2">

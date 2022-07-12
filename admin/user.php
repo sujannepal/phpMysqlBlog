@@ -25,8 +25,8 @@
             <div class="col mt-3"></div>
         </div>
         <div class="row">
-            <div class="col-sm-4">
-                <h3>Registered Users </h3>
+            <div class="col-sm-6">
+                <h4>Registered Users </h4>
             </div>
         </div>
         <?php

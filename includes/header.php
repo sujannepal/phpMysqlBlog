@@ -12,12 +12,11 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css?time=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/header.css?time=<?php echo time(); ?>">
-    <link rel="stylesheet" href="css/footer.css?time=<?php echo time(); ?>">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"  crossorigin="anonymous"></script> -->
 
-    <!-- fa fa icon cdn -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+
 
 </head>
 
@@ -34,14 +33,11 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-md-auto gap-2">
                             <li class="nav-item rounded">
-                                <a class="nav-link active" aria-current="page" href="index.php"><i
-                                        class="bi bi-house-fill me-2"></i>Home</a>
+                                <a class="nav-link active" aria-current="page" href="index.php"><i class="fas fa-home" style="font-size: 15px; padding-bottom:-5px;"></i>&nbsp;Home</a>
                             </li>
-                            <!-- <li class="nav-item rounded">
-                                <a class="nav-link" href="#"><i class="bi bi-people-fill me-2"></i>Blog</a>
-                            </li> -->
+                           
                             <li class="nav-item rounded">
-                                <a class="nav-link" href="contact.php"><i class="bi bi-telephone-fill me-2"></i>Contact</a>
+                                <a class="nav-link" href="contact.php"><i class="fas fa-envelope" style="font-size: 15px; padding-bottom:-5px;"></i>&nbsp;Contact</a>
                             </li>
 
                             <li class="nav-item rounded">
@@ -49,7 +45,7 @@
                                         class="bi bi-house-fill me-2"></i>
                                     <?php 
                                         if(isset($_SESSION["username"])){
-                                            echo 'Hello '. $_SESSION["username"];
+                                            echo '<i class="fas fa-user" style="font-size: 15px; padding-bottom:-5px;"></i> '. $_SESSION["username"];
                                         } 
                                         
                                         ?>
@@ -63,7 +59,7 @@
                                     echo '
                                 
                                     <li class="nav-item rounded">
-                                        <a class="nav-link" href="admin/index.php "><i class="bi bi-telephone-fill me-2"></i>Dashboard</a>
+                                        <a class="nav-link" href="admin/index.php "><i class="fas fa-columns" style="font-size: 15px; padding-bottom:-5px;"></i> &nbsp;Dashboard</a>
                                     </li>
                                     
                                     ';
@@ -75,7 +71,7 @@
                                 echo '
                                 
                                 <li class="nav-item rounded">
-                                    <a class="nav-link" href="includes/logout.inc.php "><i class="bi bi-telephone-fill me-2"></i>Logout</a>
+                                    <a class="nav-link" href="includes/logout.inc.php "><i class="fas fa-sign-out-alt" style="font-size: 15px; padding-bottom:-5px;"></i>Logout</a>
                                 </li>
                                 
                                 ';
@@ -84,10 +80,10 @@
                                 echo '
                                
                                 <li class="nav-item rounded">
-                                    <a class="nav-link" href="login.php"><i class="bi bi-people-fill me-2"></i>Login</a>
+                                    <a class="nav-link" href="login.php"><i class="fas fa-sign-in-alt" style="font-size: 15px; padding-bottom:-5px;"></i>&nbsp;Login</a>
                                 </li>
                                 <li class="nav-item rounded">
-                                    <a class="nav-link" href="register.php"><i class="bi bi-telephone-fill me-2"></i>Register</a>
+                                    <a class="nav-link" href="register.php"><i class="fas fa-user-plus" style="font-size: 15px; padding-bottom:-5px;"></i>&nbsp;Register</a>
                                 </li>
                                 
                                 ';
