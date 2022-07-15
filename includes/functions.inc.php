@@ -153,6 +153,19 @@ function updatePost($conn, $postId, $postTitle, $postDesc,$imagePath){
 }
 
 function deletePost($conn, $postId){
+    
+    //Remove file from physical location
+    $query = "Select image_path from post WHERE post_id  = ?";
+    $stmt1 = mysqli_prepare($conn, $query);
+    mysqli_stmt_bind_param($stmt1, 'i', $postId);
+    mysqli_stmt_execute($stmt1);
+    $result1 = mysqli_stmt_get_result($stmt1);
+    $row1 = mysqli_fetch_array($result1);
+
+    $imgPath = $row1['image_path'];
+    $imagePathToDelete ="../". $imgPath;
+    
+    //Delete reord from database
     $sql = "DELETE from post WHERE post_id = ?";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -160,10 +173,17 @@ function deletePost($conn, $postId){
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "i", $postId);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
+     mysqli_stmt_bind_param($stmt, "i", $postId);
+     mysqli_stmt_execute($stmt);
+     mysqli_stmt_close($stmt);
 
+    
+    //Delete if file exist in physical location
+    //Deleting from physical location only if delete from db is success
+   if(file_exists($imagePathToDelete)){
+    unlink($imagePathToDelete);
+   }
+  
     header("location: ../admin/index.php");
     exit();
 }

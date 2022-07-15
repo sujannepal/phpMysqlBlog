@@ -10,10 +10,15 @@ if(isset($_POST['createPost'])){
     //print_r($_FILES['postImage']);
     $imgName =  $_FILES['postImage']['name'];
     $imgOrgPath = $_FILES['postImage']['tmp_name'];
-    $imgNewPath = '../uploads/' . $imgName;
+
+    //For random numbers to append as prefix in filename
+    $digits = 5; 
+    $randomFive = random_int( 10 ** ( $digits - 1 ), ( 10 ** $digits ) - 1);
+
+    $imgNewPath = '../uploads/' . $randomFive."_". $imgName;
     move_uploaded_file($imgOrgPath, $imgNewPath);
 
-    $imgPathForDB = 'uploads/' . $imgName;
+    $imgPathForDB = 'uploads/' . $randomFive."_".$imgName;
 
 }
 
